@@ -1,0 +1,46 @@
+{
+    "name": "PopupUI",
+    "maps": [
+        {
+            "name": "PopupUI",
+            "id": "51385196-c4e1-4d59-ae95-d6d7f2bb1aa1",
+            "actions": [
+                {
+                    "name": "MenuUI",
+                    "type": "Button",
+                    "id": "e249a911-7730-4688-b496-ff2b3c2a632f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5eabd80f-30e0-4429-9b48-a0f5c8a4c064",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MenuUI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
