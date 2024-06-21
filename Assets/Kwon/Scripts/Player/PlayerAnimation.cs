@@ -47,7 +47,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Anim_Fall()
     {
-        if (playerMove.readVelocity.y < 0)
+        if (playerMove.readVelocity.y < -0.1)
         {
             animator.SetBool("Fall", true);
         }
