@@ -53,6 +53,12 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+
+        //if(!isGround && rb.velocity == Vector2.zero)
+        //{
+        //    isGround = true;
+        //}
+
         readVelocity = rb.velocity;
     }
 
