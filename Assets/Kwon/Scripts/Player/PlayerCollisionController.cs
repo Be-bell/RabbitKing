@@ -24,7 +24,7 @@ public class PlayerCollisionController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             playerMove.isGround = false;
-            playerMove.moveX = 0;
+            playerMove.saveX = 0;
         }
     }
 }

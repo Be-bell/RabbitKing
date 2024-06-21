@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed = 3;
 
 
-    public float moveX;
+    public float saveX;
     public float xSpeed = 5;
 
     public bool isGround;
@@ -49,7 +49,7 @@ public class PlayerMove : MonoBehaviour
 
             else
             {
-                rb.velocity = new Vector2(moveX, rb.velocity.y);
+                rb.velocity = new Vector2(saveX * moveSpeed, rb.velocity.y);
             }
         }
 
@@ -58,14 +58,15 @@ public class PlayerMove : MonoBehaviour
 
     public void GetX(float getX)
     {
-        moveX = getX * moveSpeed;
+        saveX = getX;
         isDown = false;
     }
 
     public void Jump()
     {
-        jumpVector = Vector2.right * moveX * xSpeed + Vector2.up * jumpPower * (jumpWeights > 1f ? 1f : jumpWeights);
+        jumpVector = Vector2.right * saveX * xSpeed + Vector2.up * jumpPower * (jumpWeights > 1f ? 1f : jumpWeights);
         rb.AddForce(jumpVector, ForceMode2D.Impulse);
         isCharging = false;
+        isGround = false;
     }
 }
