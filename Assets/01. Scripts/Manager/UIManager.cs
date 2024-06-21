@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
-    //int _order = -10;
-
     Stack<Popup_UI> _popupStack = new Stack<Popup_UI>();
 
     static UIManager instance;
@@ -36,30 +34,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    //public void SetCanvas(GameObject go, bool sort = true)
-    //{
-    //    Canvas canvas = Util.GetOrAddComponent<Canvas>(go);
-    //    canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-    //    canvas.overrideSorting = true;
-
-    //    if (sort)
-    //    {
-    //        canvas.sortingOrder = _order;
-    //        _order++;
-    //    }
-    //    else
-    //    {
-    //        canvas.sortingOrder = -20;
-    //    }
-    //}
-
     private void SetEventSystem()
     {
         Object obj = FindObjectOfType<EventSystem>();
         if (obj == null) 
         {
-            Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(path + "@EventSystem.prefab"));
+            obj = Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(path + "@EventSystem.prefab"));
         }
+
+        DontDestroyOnLoad(obj);
     }
 
     public void Exit()

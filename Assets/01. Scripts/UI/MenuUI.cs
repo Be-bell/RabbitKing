@@ -25,6 +25,7 @@ public class MenuUI : Popup_UI
     public void Title()
     {
         Time.timeScale = 1.0f;
+        UIManager.Instance.Exit();
         SceneManager.LoadScene(0);
     }
 
