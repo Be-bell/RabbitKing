@@ -98,6 +98,7 @@ public class UIManager : MonoBehaviour
         {
             if (_popupStack.Count == 0)
             {
+                Time.timeScale = 0f;
                 PopUp<MenuUI>();
             }
             else
@@ -106,6 +107,7 @@ public class UIManager : MonoBehaviour
                 {
                     Exit();
                 }
+                Time.timeScale = 1.0f;
             }
         }
     }
