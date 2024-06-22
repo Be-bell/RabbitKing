@@ -410,7 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2385365127836375607}
   m_Layer: 0
-  m_Name: 3X1_Blcok(S_2)
+  m_Name: 3X1_Blcok(S_2)_Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
