@@ -29,6 +29,25 @@ public class CameraController : MonoBehaviour
             // Stage Forest 3
             this.transform.position = new Vector3(0, 20, -10);
         }
-
+        else if (Player.transform.position.y >= 25 && Player.transform.position.y < 35)
+        {
+            // Stage Sky 1
+            this.transform.position = new Vector3(0, 30, -10);
+        }
+        else if (Player.transform.position.y >= 35 && Player.transform.position.y < 45)
+        {
+            // Stage Sky 2
+            this.transform.position = new Vector3(0, 40, -10);
+        }
+        else if (Player.transform.position.y >= 45 && Player.transform.position.y < 55)
+        {
+            // Stage Sky 3
+            this.transform.position = new Vector3(0, 50, -10);
+        }
+        else if (Player.transform.position.y >= 55 && Player.transform.position.y < 65)
+        {
+            // Stage Sky End
+            this.transform.position = new Vector3(0, 60, -10);
+        }
     }
 }
