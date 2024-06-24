@@ -18,14 +18,12 @@ public class MenuUI : Popup_UI
 
     public void Resume()
     {
-        StartCoroutine(onClickSound());
         Time.timeScale = 1.0f;
         UIManager.Instance.Exit();
     }
 
     public void Title()
     {
-        StartCoroutine(onClickSound());
         Time.timeScale = 1.0f;
         UIManager.Instance.Exit();
         SceneManager.LoadScene(0);
@@ -33,7 +31,6 @@ public class MenuUI : Popup_UI
 
     public void Info()
     {
-        StartCoroutine(onClickSound());
         UIManager.Instance.PopUp<InfoUI>();
     }
 }
