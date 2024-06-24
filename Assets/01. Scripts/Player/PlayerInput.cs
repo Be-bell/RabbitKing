@@ -27,6 +27,10 @@ public class PlayerInput : MonoBehaviour
         if (playerMove.isGround && !playerMove.isDown)
         {
             playerMove.isCharging = true;
+            if(context.started)
+            {
+                SoundManager.Instance.PlayEffectSound(EffectSoundTag.CHARGE);
+            }
 
             if (context.action.phase == InputActionPhase.Canceled || context.action.phase == InputActionPhase.Performed)
             {
