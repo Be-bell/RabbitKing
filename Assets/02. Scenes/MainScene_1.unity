@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: b747e25cd622e214dbe1e23cf3813315, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: da897bccb07f3544dab33034320a1bf6, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 617114983}
   - component: {fileID: 617114982}
   - component: {fileID: 617114984}
+  - component: {fileID: 617114985}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -507,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 7f5446abcfbf8384ba37559b275c3c2c, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -540,6 +541,18 @@ MonoBehaviour:
   m_DefaultActionMap: PopupUI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &617114985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617114981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c19e5b8afeb106418c8361791886927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &891988026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -723,6 +736,50 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.35, y: 0.76, z: 0}
   m_LocalScale: {x: 30, y: 3.1857, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &960760089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960760091}
+  - component: {fileID: 960760090}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &960760090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960760089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952460e790806834aa826d3e3ebb34c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &960760091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960760089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.168741, y: 1.4174012, z: -0.03865391}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1349,3 +1406,4 @@ SceneRoots:
   - {fileID: 1258025087}
   - {fileID: 1324941581}
   - {fileID: 617114983}
+  - {fileID: 960760091}
