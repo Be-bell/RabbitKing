@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -150,6 +151,10 @@ public class PlayerController : MonoBehaviour
                 standing = true;
             }
         }
+        else if (collision.gameObject.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene((int)Scene.END);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -159,4 +164,5 @@ public class PlayerController : MonoBehaviour
             isGround = false;
         }
     }
+
 }
