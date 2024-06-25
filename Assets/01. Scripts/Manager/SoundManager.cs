@@ -28,8 +28,9 @@ public class SoundManager : MonoBehaviour
     SoundObject soundObject;
     AudioSource source;
 
-    private float MaxBGMVolume = 0.5f;
-    private float BGMVolume;
+    [Header("Volume")]
+    [SerializeField] private float MaxBGMVolume = 1f;
+    private float BGMVolume = 0.2f;
     private float EFFECTVolume = 1f;
 
     public float BGM { get { return BGMVolume; } }
@@ -65,7 +66,6 @@ public class SoundManager : MonoBehaviour
             effectSoundMap.Add(soundObject.effectSounds[i].EffectTag, soundObject.effectSounds[i].Sound);
         }
 
-        BGMVolume = MaxBGMVolume;
         PlayBGM(BGMIndex.BG1);
         Debug.Log("Set");
 
@@ -97,7 +97,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        source.volume = BGMVolume;
+        source.volume = BGMVolume * MaxBGMVolume;
         source.loop = true;
         source.clip = clip;
         source.Play();
