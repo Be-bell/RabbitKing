@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroPlayer : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class IntroPlayer : MonoBehaviour
     private Rigidbody2D rb;
 
     private float timer = 0f;
+    private bool trigger = false;
 
     private void Awake()
     {
@@ -26,10 +28,17 @@ public class IntroPlayer : MonoBehaviour
         {
            rb.gravityScale = 1;
         }
+
+        if(trigger && timer > 2f)
+        {
+           // SceneManager.LoadScene("MainScene");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         spriteRenderer.sprite = sprite;
+        trigger = true;
+        timer = 0f;
     }
 }
