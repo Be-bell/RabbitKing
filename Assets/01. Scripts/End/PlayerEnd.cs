@@ -1,22 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerEnd : MonoBehaviour
 {
     public GameObject[] images;
     public GameObject[] rabbits;
     public GameObject textMeshProUGUI;
+    public GameObject Ending;
 
     private Vector2 target = new Vector2(0, 3.75f);
     private Vector2 velo = new Vector2(0, 0f);
 
     void Update()
     {
-        this.transform.position = Vector2.SmoothDamp(this.transform.position, target, ref velo, 1.5f);
+        transform.position = Vector2.SmoothDamp(transform.position, target, ref velo, 1.5f);
     }
 
 
@@ -39,11 +38,14 @@ public class PlayerEnd : MonoBehaviour
 
             images[i].gameObject.SetActive(false);
         }
-
         rabbits[0].gameObject.SetActive(false);
         rabbits[1].gameObject.SetActive(true);
         rabbits[2].gameObject.SetActive(true);
         textMeshProUGUI.SetActive(true);
-        this.gameObject.SetActive(false);
+        Ending.SetActive(true);
+        gameObject.SetActive(false);
+
     }
+
+    
 }

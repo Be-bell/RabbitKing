@@ -14,7 +14,8 @@ public enum BGMIndex
 {
     BG1,
     BG2,
-    BG3
+    BG3,
+    BG4
 }
 
 public class SoundManager : MonoBehaviour
@@ -29,12 +30,13 @@ public class SoundManager : MonoBehaviour
     AudioSource source;
 
     [Header("Volume")]
-    [SerializeField] private float MaxBGMVolume = 1f;
-    private float BGMVolume = 0.2f;
-    private float EFFECTVolume = 1f;
+    [SerializeField] private float MaxBGMVolume = 0.2f;
+    [SerializeField] private float MaxEffectVolume = 0.5f;
+    private float BGMVolume = 1f;
+    private float EffectVolume = 1f;
 
     public float BGM { get { return BGMVolume; } }
-    public float EFFECT { get { return EFFECTVolume; } }
+    public float EFFECT { get { return EffectVolume; } }
 
     private void Start()
     {
@@ -67,7 +69,7 @@ public class SoundManager : MonoBehaviour
         }
 
         PlayBGM(BGMIndex.BG1);
-        Debug.Log("Set");
+        //Debug.Log("Set");
 
     }
 
@@ -111,6 +113,7 @@ public class SoundManager : MonoBehaviour
 
         AudioClip clip = effectSoundMap[tag];
 
+        source.volume = EffectVolume * MaxEffectVolume;
         source.PlayOneShot(clip);
     }
 
@@ -118,14 +121,14 @@ public class SoundManager : MonoBehaviour
     {
         if (idx == ScrollIndex.BGM)
         {
-            BGMVolume = value * MaxBGMVolume;
-            audioSources[(int)AudioSourceIndex.BGM].volume = BGMVolume;
+            BGMVolume = value;
+            audioSources[(int)AudioSourceIndex.BGM].volume = BGMVolume * MaxBGMVolume;
         }
         else
         {
-            EFFECTVolume = value;
-            audioSources[(int)AudioSourceIndex.EFFECT].volume = EFFECTVolume;
-            audioSources[(int)AudioSourceIndex.BUTTON].volume = EFFECTVolume;
+            EffectVolume = value;
+            audioSources[(int)AudioSourceIndex.EFFECT].volume = EffectVolume * MaxEffectVolume;
+            audioSources[(int)AudioSourceIndex.BUTTON].volume = EffectVolume * MaxEffectVolume;
         }
     }
 }

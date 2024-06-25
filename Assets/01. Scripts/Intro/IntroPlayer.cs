@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class IntroPlayer : MonoBehaviour
 {
     public Sprite sprite;
+    public TextMeshProUGUI skipTxt;
+    public TextMeshProUGUI startTxt;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
 
@@ -31,7 +32,8 @@ public class IntroPlayer : MonoBehaviour
 
         if(trigger && timer > 2f)
         {
-            SceneManager.LoadScene((int)Scene.GAME);
+            skipTxt.gameObject.SetActive(false);
+            startTxt.gameObject.SetActive(true);
         }
     }
 

@@ -40,7 +40,7 @@
                     "name": "",
                     "id": "a706d809-1bdf-4895-a71d-0c48b05d4250",
                     "path": "<Keyboard>/z",
-                    "interactions": "Hold(duration=2,pressPoint=0.5)",
+                    "interactions": "Hold(duration=1,pressPoint=0.5)",
                     "processors": "",
                     "groups": "",
                     "action": "Skip",

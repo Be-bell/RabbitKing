@@ -26,6 +26,7 @@ public class PlayerCollisionController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Finish"))
         {
+            SoundManager.Instance.PlayBGM(BGMIndex.BG4);
             SceneManager.LoadScene((int)Scene.END);
         }
     }

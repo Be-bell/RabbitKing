@@ -1,0 +1,46 @@
+{
+    "name": "End",
+    "maps": [
+        {
+            "name": "End",
+            "id": "615e867b-af93-4375-be6f-70a1981fe81f",
+            "actions": [
+                {
+                    "name": "EndSpace",
+                    "type": "Button",
+                    "id": "70d8544e-ef00-469b-b292-e9e363a560f5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0b7a6c63-ae9e-4859-a119-d0f4e043e656",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "New control scheme",
+                    "action": "EndSpace",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
