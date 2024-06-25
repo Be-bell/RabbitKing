@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 //AudioSources Index
 public enum AudioSourceIndex
@@ -22,14 +21,15 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get { return instance; } }
     static SoundManager instance;
-    readonly string path = "Assets/03. Prefabs/Sound/";
+    readonly string path = "Sound/";
 
     List<AudioSource> audioSources = new List<AudioSource>();
     Dictionary<EffectSoundTag, AudioClip> effectSoundMap = new Dictionary<EffectSoundTag, AudioClip>();
     SoundObject soundObject;
     AudioSource source;
 
-    private float BGMVolume = 1f;
+    private float MaxBGMVolume = 0.5f;
+    private float BGMVolume;
     private float EFFECTVolume = 1f;
 
     public float BGM { get { return BGMVolume; } }
@@ -53,7 +53,7 @@ public class SoundManager : MonoBehaviour
 
     private void Init()
     {
-        soundObject = AssetDatabase.LoadAssetAtPath<SoundObject>(path + "SoundObject.asset");
+        soundObject = Resources.Load<SoundObject>(path + "SoundObject");
 
         for (int i = 0; i < System.Enum.GetValues(typeof(AudioSourceIndex)).Length; i++)
         {
@@ -65,8 +65,8 @@ public class SoundManager : MonoBehaviour
             effectSoundMap.Add(soundObject.effectSounds[i].EffectTag, soundObject.effectSounds[i].Sound);
         }
 
+        BGMVolume = MaxBGMVolume;
         PlayBGM(BGMIndex.BG1);
-
         Debug.Log("Set");
 
     }
@@ -118,7 +118,7 @@ public class SoundManager : MonoBehaviour
     {
         if (idx == ScrollIndex.BGM)
         {
-            BGMVolume = value;
+            BGMVolume = value * MaxBGMVolume;
             audioSources[(int)AudioSourceIndex.BGM].volume = BGMVolume;
         }
         else

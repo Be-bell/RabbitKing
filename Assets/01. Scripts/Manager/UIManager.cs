@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,7 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get { return instance; } }
     static UIManager instance;
-    readonly string popupPath = "Assets/03. Prefabs/UI/";
+    readonly string popupPath = "UI/";
     public UIInput input;
 
     Stack<UI_Base> _popupStack = new Stack<UI_Base>();
@@ -44,7 +43,7 @@ public class UIManager : MonoBehaviour
         Object obj = FindObjectOfType<EventSystem>();
         if (obj == null) 
         {
-            obj = Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(popupPath + "@EventSystem.prefab"));
+            obj = Instantiate(Resources.Load<GameObject>(popupPath + "@EventSystem"));
         }
 
         DontDestroyOnLoad(obj);
@@ -77,7 +76,7 @@ public class UIManager : MonoBehaviour
 
     public void PopUp<T>() where T : Popup_UI
     {
-        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(popupPath + $"Popup/{typeof(T).Name}.prefab");
+        GameObject prefab = Resources.Load<GameObject>(popupPath + $"Popup/{typeof(T).Name}");
 
         if (prefab == null)
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollisionController : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class PlayerCollisionController : MonoBehaviour
                 return;
             }
             SoundManager.Instance.PlayEffectSound(EffectSoundTag.LAND);
+        }
+        else if (collision.gameObject.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene((int)Scene.END);
         }
     }
 
