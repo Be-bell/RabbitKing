@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: SoundObject
   m_EditorClassIdentifier: 
   buttonSound: {fileID: 8300000, guid: 818ceeca65489e14ab6864f21ac80fd5, type: 3}
-  BGM1: {fileID: 8300000, guid: 8fbe700aa58582941ab77dc92bbe9ea8, type: 3}
-  BGM2: {fileID: 0}
+  BGM:
+  - {fileID: 8300000, guid: 06906d718be5b6a4cb2df8732bf39832, type: 3}
+  - {fileID: 8300000, guid: 8fbe700aa58582941ab77dc92bbe9ea8, type: 3}
   effectSounds:
   - EffectTag: 0
     Sound: {fileID: 8300000, guid: c33b58877ef714c259942f78e8f14187, type: 3}
-  - EffectTag: 2
+  - EffectTag: 1
     Sound: {fileID: 8300000, guid: 4fda5a4647ac9401c99bba5fa28a3170, type: 3}
+  - EffectTag: 2
+    Sound: {fileID: 8300000, guid: d374ec2186de7234bb3fe0828ee1d823, type: 3}
