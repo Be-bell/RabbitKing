@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -98,7 +97,7 @@ public class Intro : MonoBehaviour
             yield return null;
         }
 
-        SoundManager.Instance.PlayBGM(BGMIndex.BG2);
+        SoundManager.Instance.PlayBGM(BGMIndex.BG3);
         SceneManager.LoadScene((int)Scene.GAME);
     }
 

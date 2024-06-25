@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/02. Scenes/IntroScene.unity
+    path: Assets/02. Scenes/StartScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Kwon/kwon-intro.unity
+    path: Assets/02. Scenes/IntroScene.unity
     guid: cd8937ea8b57d5c4c839b3e5882d9d84
   - enabled: 1
-    path: Assets/Kwon/Kwon - Practice.unity
-    guid: 3f0a3fc9b213b2f4a86218757d110313
+    path: Assets/02. Scenes/MainScene.unity
+    guid: 8952afde86eeda64aa927b5f206bf47c
   m_configObjects: {}

@@ -14,7 +14,8 @@ public enum AudioSourceIndex
 public enum BGMIndex
 {
     BG1,
-    BG2
+    BG2,
+    BG3
 }
 
 public class SoundManager : MonoBehaviour
