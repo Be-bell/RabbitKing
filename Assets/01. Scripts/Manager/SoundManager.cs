@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //AudioSources Index
 public enum AudioSourceIndex
@@ -26,8 +26,13 @@ public class SoundManager : MonoBehaviour
     List<AudioSource> audioSources = new List<AudioSource>();
     Dictionary<EffectSoundTag, AudioClip> effectSoundMap = new Dictionary<EffectSoundTag, AudioClip>();
     SoundObject soundObject;
-
     AudioSource source;
+
+    private float BGMVolume = 1f;
+    private float EFFECTVolume = 1f;
+
+    public float BGM { get { return BGMVolume; } }
+    public float EFFECT { get { return EFFECTVolume; } }
 
     private void Start()
     {
@@ -35,13 +40,14 @@ public class SoundManager : MonoBehaviour
         {
             instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         DontDestroyOnLoad(instance);
 
         Init();
-
-        PlayBGM(BGMIndex.BG1);
-
     }
 
     private void Init()
@@ -50,13 +56,18 @@ public class SoundManager : MonoBehaviour
 
         for (int i = 0; i < System.Enum.GetValues(typeof(AudioSourceIndex)).Length; i++)
         {
-            audioSources.Add(Util.GetOrAddComponent<AudioSource>(gameObject));
+            audioSources.Add(gameObject.AddComponent<AudioSource>());
         }
 
         for(int i=0; i<soundObject.effectSounds.Count; i++)
         {
             effectSoundMap.Add(soundObject.effectSounds[i].EffectTag, soundObject.effectSounds[i].Sound);
         }
+
+        PlayBGM(BGMIndex.BG1);
+
+        Debug.Log("Set");
+
     }
 
     public void PlayButton()
@@ -77,16 +88,7 @@ public class SoundManager : MonoBehaviour
     {
         source = audioSources[(int) AudioSourceIndex.BGM];
 
-        AudioClip clip = null;
-        switch(idx)
-        {
-            case BGMIndex.BG1:
-                clip = soundObject.BGM1;
-                break;
-            case BGMIndex.BG2:
-                clip = soundObject.BGM2;
-                break;
-        }
+        AudioClip clip = soundObject.BGM[(int) idx];
 
         if(clip == null)
         {
@@ -94,9 +96,9 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
+        source.volume = BGMVolume;
         source.loop = true;
         source.clip = clip;
-        source.volume = 0.1f;
         source.Play();
     }
 
@@ -109,5 +111,20 @@ public class SoundManager : MonoBehaviour
         AudioClip clip = effectSoundMap[tag];
 
         source.PlayOneShot(clip);
+    }
+
+    public void SoundControl(ScrollIndex idx, float value)
+    {
+        if (idx == ScrollIndex.BGM)
+        {
+            BGMVolume = value;
+            audioSources[(int)AudioSourceIndex.BGM].volume = BGMVolume;
+        }
+        else
+        {
+            EFFECTVolume = value;
+            audioSources[(int)AudioSourceIndex.EFFECT].volume = EFFECTVolume;
+            audioSources[(int)AudioSourceIndex.BUTTON].volume = EFFECTVolume;
+        }
     }
 }

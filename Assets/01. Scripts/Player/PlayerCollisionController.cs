@@ -16,6 +16,11 @@ public class PlayerCollisionController : MonoBehaviour
         {
             playerMove.isGround = true;
             playerMove.jumpWeights = 0;
+            if(playerMove.isDown)
+            {
+                SoundManager.Instance.PlayEffectSound(EffectSoundTag.FALL);
+                return;
+            }
             SoundManager.Instance.PlayEffectSound(EffectSoundTag.LAND);
         }
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class UIInput : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class UIInput : MonoBehaviour
 
     public void MenuUI(InputAction.CallbackContext context)
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0) return;
+
         if (UIManager.Instance.stackLength() == 0)
         {
             Time.timeScale = 0f;

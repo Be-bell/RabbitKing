@@ -9,8 +9,7 @@ public class SoundObject : ScriptableObject
     public AudioClip buttonSound;
 
     [Header("BackGround Music")]
-    public AudioClip BGM1;
-    public AudioClip BGM2;
+    public List<AudioClip> BGM;
 
     [Header("Effect Sounds")]
     public List<EffectSound> effectSounds;
@@ -26,6 +25,6 @@ public class EffectSound
 public enum EffectSoundTag
 {
     CHARGE,
-    JUMP,
-    LAND
+    LAND,
+    FALL
 }

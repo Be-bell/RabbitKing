@@ -7,15 +7,19 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get { return instance; } }
     static UIManager instance;
-    readonly string path = "Assets/03. Prefabs/UI/";
+    readonly string popupPath = "Assets/03. Prefabs/UI/";
 
-    Stack<Popup_UI> _popupStack = new Stack<Popup_UI>();
+    Stack<UI_Base> _popupStack = new Stack<UI_Base>();
 
     private void Start()
     {
         if(instance == null)
         {
             instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
 
         DontDestroyOnLoad(instance);
@@ -38,7 +42,7 @@ public class UIManager : MonoBehaviour
         Object obj = FindObjectOfType<EventSystem>();
         if (obj == null) 
         {
-            obj = Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(path + "@EventSystem.prefab"));
+            obj = Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(popupPath + "@EventSystem.prefab"));
         }
 
         DontDestroyOnLoad(obj);
@@ -71,7 +75,7 @@ public class UIManager : MonoBehaviour
 
     public void PopUp<T>() where T : Popup_UI
     {
-        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path + $"Popup/{typeof(T).Name}.prefab");
+        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(popupPath + $"Popup/{typeof(T).Name}.prefab");
 
         if (prefab == null)
         {
