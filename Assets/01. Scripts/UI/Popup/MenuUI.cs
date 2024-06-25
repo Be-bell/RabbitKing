@@ -28,7 +28,7 @@ public class MenuUI : Popup_UI
         Time.timeScale = 1.0f;
         UIManager.Instance.Exit();
         SoundManager.Instance.PlayBGM(BGMIndex.BG1);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene((int)Scene.START);
     }
 
     public void Info()

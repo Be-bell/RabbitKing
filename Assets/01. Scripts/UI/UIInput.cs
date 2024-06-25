@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,8 @@ public class UIInput : MonoBehaviour
 {
     UnityEngine.InputSystem.PlayerInput inputAction;
 
+    public event Action SkipEvent;
+
     InputActionMap actionMap;
 
     private void Start()
@@ -13,12 +16,14 @@ public class UIInput : MonoBehaviour
         inputAction = GetComponent<UnityEngine.InputSystem.PlayerInput>();
         actionMap = inputAction.currentActionMap;
         InputAction menuUI = actionMap.actions[(int)UIInputActions.MENUUI];
+        InputAction skip = actionMap.actions[(int) UIInputActions.SKIP];
         menuUI.performed += MenuUI;
+        skip.performed += SkipIntro;
     }
 
     public void MenuUI(InputAction.CallbackContext context)
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0) return;
+        if (SceneManager.GetActiveScene().buildIndex == (int)Scene.START) return;
 
         if (UIManager.Instance.stackLength() == 0)
         {
@@ -34,10 +39,21 @@ public class UIInput : MonoBehaviour
             Time.timeScale = 1.0f;
         }
     }
+
+    public void SkipIntro(InputAction.CallbackContext context)
+    {
+        if (SceneManager.GetActiveScene().buildIndex != (int)Scene.INTRO) return;
+
+        if (context.action.phase == InputActionPhase.Performed)
+        {
+            SkipEvent.Invoke();
+        }
+    }
 }
 
 public enum UIInputActions
 {
     NONE = -1,
-    MENUUI
+    MENUUI,
+    SKIP
 }

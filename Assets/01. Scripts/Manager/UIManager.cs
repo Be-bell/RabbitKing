@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get { return instance; } }
     static UIManager instance;
     readonly string popupPath = "Assets/03. Prefabs/UI/";
+    public UIInput input;
 
     Stack<UI_Base> _popupStack = new Stack<UI_Base>();
 
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour
 
         DontDestroyOnLoad(instance);
         SetEventSystem();
+        input = GetComponent<UIInput>();
     }
 
     public GameObject Root

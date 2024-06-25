@@ -13,7 +13,7 @@ public class CameraIntro : MonoBehaviour
         if (this.transform.position.y > 0)
         { 
             this.transform.position = new Vector3(0, this.transform.position.y - (Time.deltaTime), -10);
-            Debug.Log(time);
+            //Debug.Log(time);
         }
     }
 }

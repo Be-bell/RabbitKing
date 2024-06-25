@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Intro : MonoBehaviour
 {
     public Image[] image;
     public TextMeshProUGUI[] text;
+
+    [Header("Fadeout")]
+    // Required Refactoring
+    [SerializeField] private Image fadeoutPanel;
+    [SerializeField] private float fadeoutTime = 2f;
+    private float currentTime = 0f;
 
     private void Awake()
     {
@@ -22,6 +29,7 @@ public class Intro : MonoBehaviour
     private void Start()
     { 
         StartCoroutine(FadeInOut(3f, image, text));
+        UIManager.Instance.input.SkipEvent += SkipScene;
     }
 
 
@@ -70,6 +78,28 @@ public class Intro : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    private void SkipScene()
+    {
+        StartCoroutine(FadeoutScene());
+    }
+
+    public IEnumerator FadeoutScene()
+    {
+        fadeoutPanel.gameObject.SetActive(true);
+        Color alpha = fadeoutPanel.color;
+
+        while (alpha.a < 1)
+        {
+            currentTime += Time.deltaTime / fadeoutTime;
+            alpha.a = Mathf.Lerp(0, 1, currentTime);
+            fadeoutPanel.color = alpha;
+            yield return null;
+        }
+
+        SoundManager.Instance.PlayBGM(BGMIndex.BG2);
+        SceneManager.LoadScene((int)Scene.GAME);
     }
 
 }

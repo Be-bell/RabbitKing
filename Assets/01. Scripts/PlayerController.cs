@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         isJumping = true;
         isCharging = false;
 
-        Debug.Log(rb.velocity);
+        //Debug.Log(rb.velocity);
         timer = 0f;
     }
 

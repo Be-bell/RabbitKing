@@ -40,7 +40,7 @@ public class StartSceneUI : UI_Base
         }
 
         SoundManager.Instance.PlayBGM(BGMIndex.BG2);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene((int) Scene.INTRO);
     }
 
     private void QuitGame()
@@ -61,4 +61,12 @@ public class StartSceneUI : UI_Base
     {
         UIManager.Instance.PopUp<SoundUI>();
     }
+}
+
+public enum Scene
+{
+    START,
+    INTRO,
+    GAME,
+    END
 }

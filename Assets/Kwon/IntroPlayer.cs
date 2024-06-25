@@ -31,7 +31,7 @@ public class IntroPlayer : MonoBehaviour
 
         if(trigger && timer > 2f)
         {
-           // SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene((int)Scene.GAME);
         }
     }
 
