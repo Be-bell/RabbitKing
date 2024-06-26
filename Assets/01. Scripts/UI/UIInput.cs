@@ -8,6 +8,7 @@ public class UIInput : MonoBehaviour
     UnityEngine.InputSystem.PlayerInput inputAction;
 
     public event Action SkipEvent;
+    public Intro intro;
 
     InputActionMap actionMap;
 
@@ -44,9 +45,14 @@ public class UIInput : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != (int)Scene.INTRO) return;
 
-        if (context.action.phase == InputActionPhase.Performed)
+        if(intro == null)
         {
-            SkipEvent.Invoke();
+            intro = FindObjectOfType<Intro>();
+        }
+
+        if (intro != null && context.action.phase == InputActionPhase.Performed)
+        {
+            intro.SkipScene();
         }
     }
 }
