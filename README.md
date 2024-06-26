@@ -1,6 +1,6 @@
 <div align = 'center'>
 
-#### 🎮 RabbitKing
+# 🎮 RabbitKing
 Unity 게임개발 심화주차 팀 프로젝트
 
 </br>
@@ -19,6 +19,7 @@ Unity 게임개발 심화주차 팀 프로젝트
 </br>
 </br>
 
+<div align = 'center'>
 
 ### 📆 개발 기간
 
@@ -33,14 +34,17 @@ Unity 게임개발 심화주차 팀 프로젝트
    </br>
    </br>
 
+<div align = 'center'>
 
 ### 💻 개발 환경
 
 </br>
 
-Unity 2022.3.17f1
-Visual Studio 2022
-GitHub
+Unity 2022.3.17f1  
+Visual Studio 2022  
+GitHub  
+
+
 
 </div>
 
@@ -48,6 +52,8 @@ GitHub
    </br>
    </br>
    </br>
+
+<div align = 'center'>
 
 ### ✏️ 팀원 소개
 
