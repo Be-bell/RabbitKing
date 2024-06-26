@@ -24,15 +24,10 @@ public class Intro : MonoBehaviour
         }
     }
 
-
     private void Start()
     { 
         StartCoroutine(FadeInOut(3f, image, text));
-        UIManager.Instance.input.SkipEvent += SkipScene;
     }
-
-
-   
 
     private IEnumerator FadeInOut(float time, Image[] image, TextMeshProUGUI[] text)
     {
@@ -79,7 +74,7 @@ public class Intro : MonoBehaviour
         }
     }
 
-    private void SkipScene()
+    public void SkipScene()
     {
         StartCoroutine(FadeoutScene());
     }
